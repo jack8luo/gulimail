@@ -2,6 +2,7 @@ package com.luohao.gulimail.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /*
 * 整合mybatisplus
@@ -15,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
     *   配置数据源
     * 配置mybatisplus
 * */
+@EnableDiscoveryClient
 @SpringBootApplication
 public class GulimailProductApplication {
 
