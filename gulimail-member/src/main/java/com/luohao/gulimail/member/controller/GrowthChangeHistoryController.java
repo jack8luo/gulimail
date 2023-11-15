@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +26,22 @@ import com.luohao.common.utils.R;
  * @email 18779121256@163.com
  * @date 2023-11-14 14:17:49
  */
+@RefreshScope
 @RestController
 @RequestMapping("member/growthchangehistory")
 public class GrowthChangeHistoryController {
     @Autowired
     private GrowthChangeHistoryService growthChangeHistoryService;
 
+    @Value("${member.user.name}")
+    private String name;
+    @Value("${member.user.age}")
+    private Integer age;
+
+    @RequestMapping("test")
+    public R test(){
+        return R.ok().put("name",name).put("age",age);
+    }
     /**
      * 列表
      */
